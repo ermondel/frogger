@@ -119,4 +119,27 @@ var engineTiles = {
         return (((y + 23) / 83) + 1);
     },
 
+    /* Проверить покинуло ли указанное количество px
+     * половину или более тайла по оси X
+     */
+    moreHalfTileX: function(x) {
+        if (x < 50) {
+            return false;
+        } else if (x >= 50 && x < 101) {
+            return true;
+        } else {
+            return (x % 101 >= 50) ? true : false;
+        }
+    },
+
+    /* Получить указанный графический тайл игрока из предоставленных
+     * Нумерация начинается с нуля. Если номер не указан он генерится рандомом.
+     */
+    playerSprite: function(sprites, num) {
+        if (num === undefined || num < 0 || num>=sprites.length) {
+            var num = (Math.floor(Math.random() * (sprites.length)));
+        }
+        return sprites[num];
+    },
+    
 };
