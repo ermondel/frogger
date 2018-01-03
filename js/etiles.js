@@ -97,5 +97,26 @@ var engineTiles = {
                 return (engineTiles.getTileFromPxYPlayer(yy)<=6 ? yy : y);
         }
     },
-    
+
+    /* Получить номер 'переднего' тайла по значению в px по оси Х
+     * (прим.: враги могут занимать два и больше тайла по движению).
+     */
+    getFrontTileXEnemy: function (x) {
+        if ((x+101) > 0 && (x+101)<=101) {
+            return 1;
+        } else if ((x+101) > 0 && (x+101)>101) {
+            return Math.ceil((x+101) / 101);
+        }
+        return 0;
+    },
+
+    /* ...
+     * 
+     */
+    getFrontTileYEnemy: function (y) {
+        // tile height is 83 px
+        // ((current position + offset) / tile height) + <counting tiles is from one>
+        return (((y + 23) / 83) + 1);
+    },
+
 };
