@@ -1,3 +1,6 @@
+/* app.js
+ * comments on russian, sorry ¯\_(ツ)_/¯ 
+ */
 var Entity = function() {
 	this.x = 0;
 	this.y = 0;

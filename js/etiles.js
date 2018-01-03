@@ -1,4 +1,5 @@
 /* etiles.js
+ * comments on russian, sorry ¯\_(ツ)_/¯ 
  * Слой над Engine.js для трансляции px в тайлы и наоборот.
  * прим.: размеры игрового полотна 505px x 606px
  *
