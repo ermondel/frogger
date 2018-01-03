@@ -1,4 +1,5 @@
 /* app.js
+ * version 1.0
  * comments on russian, sorry ¯\_(ツ)_/¯ 
  */
 var Entity = function() {
