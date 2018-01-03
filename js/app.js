@@ -98,9 +98,20 @@ Player.prototype.lose = function() {
 
 
 // Now instantiate objects.
-var allEnemies = [];
+var allEnemies = [
+    new Enemy(0, 2, 6),
+    new Enemy(0, 3, 6),
+    new Enemy(0, 4, 6),
+    new Enemy(-2, 2, 8),
+];
 
-var player = new Player();
+var player = new Player([
+    'images/char-boy.png',
+    'images/char-cat-girl.png',
+    'images/char-horn-girl.png',
+    'images/char-pink-girl.png',
+    'images/char-princess-girl.png'
+]);
 
 
 
