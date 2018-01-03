@@ -40,4 +40,22 @@ var engineTiles = {
         // 
         return (((y-1) * 83) - 29);
     },
+
+    /* Получить для Врага по оси X по номеру тайла значение этого тайла в px
+     * 
+     */
+    getPxFromTileXEnemy: function (x) {
+        // tile width is 101 px
+        // 
+        return (((x-1) * 101) - 0);
+    },
+
+    /* Получить для Врага по оси Y по номеру тайла значение этого тайла в px
+     * 
+     */
+    getPxFromTileYEnemy: function (y) {
+        // tile height is 83 px
+        // 
+        return (((y-1) * 83) - 23);
+    },
 };
