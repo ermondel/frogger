@@ -9,10 +9,10 @@ var engineTiles = {
      * 
      */
     getTileFromPxXPlayer: function (x) {
-		// tile width is 101 px
-		// ((current position + offset) / tile width) + <counting tiles is from one>
-		return (((x + 0) / 101) + 1);
-	},
+        // tile width is 101 px
+        // ((current position + offset) / tile width) + <counting tiles is from one>
+        return (((x + 0) / 101) + 1);
+    },
 
     /* Получить номер тайла по значению в px по оси Y
      * 
@@ -141,5 +141,5 @@ var engineTiles = {
         }
         return sprites[num];
     },
-    
+
 };
