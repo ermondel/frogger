@@ -58,4 +58,44 @@ var engineTiles = {
         // 
         return (((y-1) * 83) - 23);
     },
+
+    /* Переместить по значению в px на один тайл влево или вправо по оси X
+     * 
+     */
+    moveToTileXPlayer: function (key, x) {
+        // tile width is 101 px
+        switch(key) {
+            // тайлов по ширине только 5-ть,
+            // тайлы меньше 1-го не действуют.
+            case 'left':
+                var xx = x - 101;
+                return (engineTiles.getTileFromPxXPlayer(xx)>0 ? xx : x);
+            // тайлов по ширине только 5-ть,
+            // тайлы больше 5-го не действуют.
+            case 'right':
+                var xx = x + 101;
+                return (engineTiles.getTileFromPxXPlayer(xx)<=5 ? xx : x);
+        }
+    },
+
+    /* Переместить по значению в px на один тайл вверх или вниз по оси Y
+     * 
+     */
+    moveToTileYPlayer: function (key, y) {
+        // tile height is 83 px
+        // tile width is 101 px
+        switch(key) {
+            // тайлов по высоте только 6-ть,
+            // тайлы меньше 1-го не действуют.
+            case 'up':
+                var yy = y - 83;
+                return (engineTiles.getTileFromPxYPlayer(yy)>0 ? yy : y);
+            // тайлов по высоте только 6-ть,
+            // тайлы больше 6-го не действуют.
+            case 'down':
+                var yy = y + 83;            
+                return (engineTiles.getTileFromPxYPlayer(yy)<=6 ? yy : y);
+        }
+    },
+    
 };
