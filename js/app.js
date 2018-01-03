@@ -1,8 +1,15 @@
 var Entity = function() {
+	this.x = 0;
+	this.y = 0;
+    this.visible = true;
+	this.sprite = '';
 }
 Entity.prototype.render = function() {
+	if (this.visible) ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 Entity.prototype.restart = function() {
+	this.x = 0;
+	this.y = 0;
 }
 
 
