@@ -53,18 +53,46 @@ Enemy.prototype.update = function(dt) {
 
 
 var Player = function(sprites) {
+	Entity.call(this);                                        // получить свойста родительского класса
+	this.x = engineTiles.getPxFromTileXPlayer(5);             // установить стартовую позицию по оси X на 5ый тайл
+    this.y = engineTiles.getPxFromTileYPlayer(6);             // установить стартовую позицию по оси Y на 6ый тайл
+    this.playerTile = 56;                                     // установить текущий тайл как 'стартовый' тайл (с номером 56)
+    this.sprites = sprites;                                   // список доступных графических тайлов игроков
+    this.sprite = engineTiles.playerSprite(this.sprites);     // рандомно установить графический тайл игрока
 }
 Player.prototype = Object.create(Entity.prototype);
 Player.prototype.constructor = Player;
 Player.prototype.handleInput = function(key) {
+	switch(key) {
+        case 'left':
+        case 'right':
+            this.x = engineTiles.moveToTileXPlayer(key, this.x);
+            break;
+        case 'up':
+        case 'down':
+            this.y = engineTiles.moveToTileYPlayer(key, this.y);
+            break;
+    }
+    var tileX = engineTiles.getTileFromPxXPlayer(this.x);  // получить текущий занимемый Игроком тайл по оси Х
+    var tileY = engineTiles.getTileFromPxYPlayer(this.y);  // получить текущий занимемый Игроком тайл по оси Y
+    this.playerTile = tileX+''+tileY;                      // установить текущий занимемый Игроком тайл
+    if (tileY == 1) {                                      // если тайл это 'вода' (тайл по Y номер один), то перезапустить игрока
+        player.win();
+    }
 }
 Player.prototype.update = function(dt) {
 }
 Player.prototype.restart = function() {
+	this.x = engineTiles.getPxFromTileXPlayer(5);  // установить стартовую позицию по оси X на 5-ый 'стартовый' тайл
+	this.y = engineTiles.getPxFromTileYPlayer(6);  // установить стартовую позицию по оси Y на 6-ый 'стартовый' тайл
+	this.playerTile = 56;                          // установить текущий тайл как 'стартовый' тайл (с номером 56)
 }
 Player.prototype.win = function() {
+	this.sprite = engineTiles.playerSprite(this.sprites);  // рандомно установить графический тайл игрока
+    this.restart();
 }
 Player.prototype.lose = function() {
+	this.restart();
 }
 
 
